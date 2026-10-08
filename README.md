@@ -58,7 +58,7 @@ gcc -Wall -Wextra 3_signal_block.c -o 3_signal_block
 * sigaction()을 이용한 시그널 핸들러 코드 구조 작성 도움
 * alarm()을 이용한 반복 타이머 코드 구조 작성 도움
 * sigprocmask()를 이용한 시그널 차단 및 해제 코드 구조 작성 도움
-* README.md의 가독성을 높이기 위해 Markdown 문법과 문서 형식 수정 도움
+* README.md의 가독성을 높이기 위해 Markdown 문법을 이용한 문서 형식 수정 도움
 
 AI가 제시한 코드 구조와 예시를 참고하여 Linux 환경에서 직접 컴파일하고 실행하였다. 컴파일 과정에서 발생한 경고를 수정하고 각 프로그램의 동작을 확인하였다.
 
@@ -86,5 +86,8 @@ signal_assignment/
 ├── 1_sigint.c
 ├── 2_alarm.c
 ├── 3_signal_block.c
+├── sigint.png
+├── alarm.png
+├── signal_block.png
 └── README.md
 ```
