@@ -10,7 +10,7 @@ Linux 환경에서 C 언어를 사용하여 시그널을 처리하는 프로그�
 
 ## 2. 구현 내용
 ### 2.1 Ctrl+C 3회 입력
-**파일**: `1_sigint.c`
+**파일:** [1_sigint.c](1_sigint.c)
 SIGINT 시그널을 처리하는 핸들러를 등록하였다.
 Ctrl+C를 누를 때마다 카운터를 증가시키고, 세 번째 Ctrl+C를 받은 후 프로그램을 종료하도록 구현하였다.
 시그널 핸들러에서는 카운터만 변경하고, 화면 출력은 main()에서 수행하였다.
@@ -19,7 +19,7 @@ Ctrl+C를 누를 때마다 카운터를 증가시키고, 세 번째 Ctrl+C를 �
 ![Ctrl+C 3회 실행 결과](sigint.png)
 
 ### 2.2 반복 타이머
-**파일**: `2_alarm.c`
+**파일**: [2_alarm.c](2_alarm.c)
 alarm()을 이용하여 지정된 시간 간격마다 SIGALRM이 발생하도록 구현하였다. alarm()은 한 번 실행되면 한 번만 동작하기 때문에, 시그널 핸들러에서 다음 알람을 다시 설정하여 반복되도록 구현하였다.
 
 **실행 명령과 실행 결과**
@@ -27,7 +27,7 @@ alarm()을 이용하여 지정된 시간 간격마다 SIGALRM이 발생하도록
 위 실행에서는 2초 간격으로 총 5회 타이머가 동작하도록 설정하였다.
 
 ### 2.3 SIGINT 차단 및 해제
-**파일**: `3_signal_block.c`
+**파일:** [3_signal_block.c](3_signal_block.c)
 sigprocmask()를 사용하여 SIGINT를 일정 시간 동안 차단하였다. 차단된 상태에서 Ctrl+C를 입력한 후 차단을 해제하면, 대기 중이던 SIGINT가 전달되는 것을 확인하였다.
 
 실행 명령과 실행 결과
@@ -38,10 +38,11 @@ sigprocmask()를 사용하여 SIGINT를 일정 시간 동안 차단하였다. �
 ## 3. 컴파일 방법
 각 프로그램은 다음과 같이 컴파일하였다.
 
-|---|
-| gcc -Wall -Wextra 1_sigint.c -o 1_sigint
+```bash
+gcc -Wall -Wextra 1_sigint.c -o 1_sigint
 gcc -Wall -Wextra 2_alarm.c -o 2_alarm
-gcc -Wall -Wextra 3_signal_block.c -o 3_signal_block |
+gcc -Wall -Wextra 3_signal_block.c -o 3_signal_block
+```
 
 세 프로그램 모두 -Wall -Wextra 옵션을 사용하여 컴파일하였으며, 최종적으로 경고 없이 컴파일되는 것을 확인하였다.
 
